@@ -26,6 +26,6 @@ export class TransactionComponent implements OnInit {
   }
 
   public description(txt: Transaction): string {
-      return `${this.typeToLabel(txt)} de $ ${this.amount(txt)}.`;
+      return `${this.typeToLabel(txt)} de ${this.amount(txt)}.`;
   }
 }
