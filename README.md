@@ -1,5 +1,10 @@
 # Accounting book client
 
+
+![Screenshot](https://github.com/desyncr/accounting-book-client//blob/master/preview1.png?raw=true)
+
+![Screenshot](https://github.com/desyncr/accounting-book-client//blob/master/preview2.png?raw=true)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
 
 ## Development server
