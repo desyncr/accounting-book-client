@@ -15,13 +15,15 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { FormsModule } from '@angular/forms';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TransactionComponent
+    TransactionComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

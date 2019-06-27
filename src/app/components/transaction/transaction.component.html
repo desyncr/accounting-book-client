@@ -1,4 +1,27 @@
-<span class="badge badge-{{transaction.type}}">
-    {{typeToLabel(transaction.type) }}
-</span>
+<div *ngIf="!transactions.length">
+  No hay transacciones por el momento.
+</div>
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let txt of transactions">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="badge badge-{{txt.type}}">
+            {{ typeToLabel(txt) }}
+          </span>
+
+        </mat-panel-title>
+
+        <mat-panel-description>
+          {{ amount(txt) }}
+        </mat-panel-description>
+
+      </mat-expansion-panel-header>
+
+      <p>{{ description(txt) }}</p>
+
+    </mat-expansion-panel>
+</mat-accordion>
+
 

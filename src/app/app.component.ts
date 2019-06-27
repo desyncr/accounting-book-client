@@ -11,18 +11,28 @@ import { Observable, Subscriber } from 'rxjs';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'client2';
-  transactions: Observable<Transaction[]>;
-  defaultAccount: string;
+  title = 'Accounting book';
+
+  transactions: Transaction[];
+  account: Account;
+
+  defaultAccount = '89618263481836485756';
 
   constructor(private apiService: ApiService) {
-      this.defaultAccount = '89618263481836485756';
+    this.account = new Account(this.defaultAccount)
 
-      const account = new Account();
-      account.account = this.defaultAccount;
-      this.transactions = apiService.getTransactions(account);
+    const accountReq = apiService.getBalance(this.account);
+    accountReq.subscribe((balance: Account) => {
+      this.account = balance;
+    });
+
+    const transactionsReq = apiService.getTransactions(this.account);
+    transactionsReq.subscribe((transactions: Transaction[]) => {
+      this.transactions = transactions.reverse();
+    });
   }
 
   public updateAccount(form: object): void {
+
   }
 }

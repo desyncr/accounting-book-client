@@ -6,23 +6,8 @@
   </mat-form-field>
 </form>
 
-<mat-accordion>
-    <mat-expansion-panel *ngFor="let txt of transactions | async">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            <app-transaction [transaction]="txt"></app-transaction>
-        </mat-panel-title>
-
-        <mat-panel-description>
-            $ {{txt.amount}}
-        </mat-panel-description>
-
-      </mat-expansion-panel-header>
-
-      <p>$ {{txt.amount}}</p>
-
-    </mat-expansion-panel>
-</mat-accordion>
+<app-account [account]="account"></app-account>
+<app-transaction [transactions]="transactions"></app-transaction>
 
 <app-footer></app-footer>
 
