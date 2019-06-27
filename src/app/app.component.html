@@ -2,7 +2,7 @@
 
 <form #accountForm="ngForm" (ngSubmit)="updateAccount(accountForm)">
   <mat-form-field>
-      <input matInput placeholder="Account number" value="{{this.accountNumber}}" [(ngModel)]="this.accountNumber" name="accountNumber">
+      <input matInput readonly placeholder="Account number" value="{{this.accountNumber}}" [(ngModel)]="this.accountNumber" name="accountNumber">
   </mat-form-field>
 </form>
 
