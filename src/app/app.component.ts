@@ -15,23 +15,30 @@ export class AppComponent {
   transactions: Transaction[] = [];
   account: Account;
 
-  defaultAccount = environment.defaultAccount;
+  accountNumber = environment.defaultAccount;
 
   constructor(private apiService: ApiService) {
-    this.account = new Account(this.defaultAccount)
-
-    const accountReq = apiService.getBalance(this.account);
-    accountReq.subscribe((account: Account) => {
-      this.account.balance = account.balance;
-    }, (err) => {});
-
-    const transactionsReq = apiService.getTransactions(this.account);
-    transactionsReq.subscribe((transactions: Transaction[]) => {
-      this.transactions = transactions.reverse();
-    }, (err) => {});
+    this.getAccountInformation(this.accountNumber);
   }
 
   public updateAccount(form: object): void {
+    this.getAccountInformation(this.accountNumber);
+  }
+
+  private getAccountInformation(account: string): void {
+    this.account = new Account(account);
+
+    const accountReq = this.apiService.getBalance(this.account);
+    accountReq.subscribe((acc: Account) => {
+      this.account.balance = acc.balance;
+    }, (err) => {
+      this.account.balance = 0;
+    });
+
+    const transactionsReq = this.apiService.getTransactions(this.account);
+    transactionsReq.subscribe((transactions: Transaction[]) => {
+      this.transactions = transactions.reverse();
+    }, (err) => {});
 
   }
 }
