@@ -23,9 +23,6 @@ export class AppComponent {
       this.transactions = apiService.getTransactions(account);
   }
 
-  public typeToLabel(typeStr: string): string {
-      return typeStr === 'debit' ? 'Extracción' : 'Crédito';
-  }
-  public updateAccount(accountNumber: object): void {
+  public updateAccount(form: object): void {
   }
 }
