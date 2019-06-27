@@ -21,10 +21,11 @@ export class TransactionComponent implements OnInit {
   }
 
   public amount(txt: Transaction): string {
-      return `$ ${txt.amount}`;
+      const sign = txt.type === 'debit' ? '-' : '';
+      return `$ ${sign}${txt.amount}`;
   }
 
   public description(txt: Transaction): string {
-      return `${this.typeToLabel(txt)} de $ ${txt.amount}.`;
+      return `${this.typeToLabel(txt)} de $ ${this.amount(txt)}.`;
   }
 }

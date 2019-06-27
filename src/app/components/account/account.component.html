@@ -1,4 +1,4 @@
 <div>
   Current balance:
-  <h1>{{ balance(account) }}</h1>
+  <h1 *ngIf="account.balance >= 0 ">{{ balance(account) }}</h1>
 </div>
