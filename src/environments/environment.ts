@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  defaultAccount: '89618263481836485756',
+  apiRoot: 'http://127.0.0.1:4567/accounts'
 };
 
 /*

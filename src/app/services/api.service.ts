@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Transaction } from '../models/transaction';
 import { Account } from '../models/account';
 import { Observable, Subscriber } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ApiService {
     private apiRoot: string;
 
     constructor(private httpClient: HttpClient) {
-        this.apiRoot = 'http://127.0.0.1:4567/accounts';
+        this.apiRoot = environment.apiRoot;
     }
 
     public getBalance(account: Account) {
